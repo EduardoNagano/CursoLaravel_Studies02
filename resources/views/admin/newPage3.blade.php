@@ -1,4 +1,10 @@
 @extends('layouts/main_layout')
 @section('content')
-    <p class="display-1 text-center">ADMIN</p>
+    
+    <h1>PHP1: <?= $name ?></h1>
+    <h1>PHP2: <?php echo $name ?></h1>
+    <br>
+    <h1>{{ $name }}</h1>
+    <h3>{{ $phone }}</h3>
+
 @endsection
