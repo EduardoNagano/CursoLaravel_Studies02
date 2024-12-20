@@ -18,7 +18,12 @@ class MainController extends Controller
         return view('home', $data);
     }
 
-    public function submitForm() : void {
-        echo "formulário submetido";
+    public function submitForm(Request $request) : void {
+        $request->validate([
+            'name' => 'required',
+            'country' => 'required|min:6'
+        ]);
+
+        echo "Formulário submetido com sucesso";
     }
 }
