@@ -1,21 +1,28 @@
 @extends('layouts/main_layout')
 @section('content')
-    {{-- Empty --}}
-    @empty($value)
-        <p>Não existe</p>
-    @else
-        <p>Existe</p>
-    @endempty
+    {{-- for --}}
+    @for ($i = 0; $i < 5; $i++)
+        <h1>{{ $i }}</h1>
+    @endfor
 
-    {{-- isset --}}
-    @isset($value)
-        <p>Existe a variável</p>
-    @else
-        <p>Não existe a variável</p>
-    @endisset
+    {{-- foreach --}}
+    @foreach ($cities as $city)
+        <h1>{{ $city }}</h1>
+    @endforeach
 
-    {{-- unless --}}
-    @unless ($value != 100)
-        <p>Ok</p>
-    @endunless
+    {{-- forelse é um foreach com empty --}}
+    @forelse ($names as $name)
+        <p>{{ $name }}</p>
+    @empty
+        <p>Names está vazio</p>
+    @endforelse
+
+    {{-- while --}}
+    @while ($indice < 10)
+        <p>Índice: {{ $indice }}</p>
+
+        @php
+            $indice++;
+        @endphp
+    @endwhile
 @endsection
